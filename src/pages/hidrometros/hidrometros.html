@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Meus hidrômetros</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+    <button ion-item *ngFor="let hidrometro of hidrometros" (click)="itemTapped($event, hidrometro)">
+        {{hidrometro.nome}}
+    </button>
+    </ion-list>
+    <!-- <div *ngIf="selectedItem" padding>
+     You navigated here from <b>{{selectedItem.title}}</b>
+    </div> -->
+</ion-content>

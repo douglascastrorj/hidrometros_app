@@ -65,9 +65,6 @@ export class AuthService {
 
 	public login(credentials) {
 
-		
-
-
 		if (credentials.email === null || credentials.password === null) {
 			return Observable.throw("Please insert credentials");
 		} else {
