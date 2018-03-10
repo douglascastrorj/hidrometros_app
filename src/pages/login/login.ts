@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, Loading, IonicPage } from 'ionic-angular';
+import { NavController, AlertController, LoadingController, Loading } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { HomePage } from '../home/home';
  
@@ -27,7 +27,7 @@ export class LoginPage {
 			if (allowed) {        
 				this.nav.setRoot(HomePage);
 			} else {
-				this.showError("Access Denied");
+				this.showError("Por favor verifique se usuário e senha foram digitados corretamente");
 			}
 		},
 		error => {
@@ -37,7 +37,7 @@ export class LoginPage {
 
 	showLoading() {
 		this.loading = this.loadingCtrl.create({
-			content: 'Please wait...',
+			content: 'Esepere porfavor...',
 			dismissOnPageChange: true
 		});
 		this.loading.present();
@@ -47,7 +47,7 @@ export class LoginPage {
 		this.loading.dismiss();
 
 		let alert = this.alertCtrl.create({
-			title: 'Fail',
+			title: 'Falha ao conectar',
 			subTitle: text,
 			buttons: ['OK']
 		});
