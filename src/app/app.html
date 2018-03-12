@@ -1,11 +1,27 @@
 <ion-menu [content]="content">
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar color="dark">
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
+
+	<ion-card>
+
+		<ion-card-header>
+			<img src="http://www.midiamax.com.br/sites/default/files/destaque/image_27.jpg" style="border-radius:50%; width: 100px; height: 100px; margin:auto;"/>
+			<p style="text-align: center; font-family: Lato; color: #555"> Silvio Santos </p>
+		</ion-card-header>
+		<!-- <img src="img/advance-card-bttf.png"> -->
+
+		<ion-card-content>
+			<p style="text-align: justify; font-family: Lato; color: #555"><i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempor aliquam libero, eget sodales lacus efficitur cursus. </i></p>
+		</ion-card-content>
+
+	</ion-card>
+
+
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}

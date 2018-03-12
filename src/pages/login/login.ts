@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { HomePage } from '../home/home';
- 
+// import * as moment from 'moment';
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -11,7 +12,10 @@ export class LoginPage {
 	loading: Loading;
 	registerCredentials = { email: '', password: '' };
 
-	constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) { }
+	constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) { 
+
+		// console.log(moment().format('DD / MM / YYYY'))
+	}
 
 	public createAccount() {
 		this.nav.push('RegisterPage');

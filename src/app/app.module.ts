@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { HidrometrosPage } from '../pages/hidrometros/hidrometros';
+import { AddHidrometroPage } from '../pages/hidrometros/add-hidrometro/add-hidrometro';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,7 +22,8 @@ import {HttpModule} from "@angular/http";
     HomePage,
     ListPage,
     LoginPage,
-    HidrometrosPage
+    HidrometrosPage,
+    AddHidrometroPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import {HttpModule} from "@angular/http";
     HomePage,
     ListPage,
     LoginPage,
-    HidrometrosPage
+    HidrometrosPage,
+    AddHidrometroPage
   ],
   providers: [
     StatusBar,

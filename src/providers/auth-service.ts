@@ -76,7 +76,7 @@ export class AuthService {
 
 			var headers = new Headers();
 			headers.append('Content-Type', 'application/x-www-form-urlencoded');
-				let options = {
+			let options = {
 				headers: headers
 			};
 

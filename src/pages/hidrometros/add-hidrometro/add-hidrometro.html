@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="login"></ion-icon>
+        </button>
+        <ion-title>Adicionar Hidrômetro</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content  padding>
+
+    <form (ngSubmit)="submit()" #meuForm="ngForm">
+        <ion-row>
+            <ion-col>
+                <ion-list >
+                    <ion-item-divider>
+                        Dados Hidrômetro
+                    </ion-item-divider>
+
+                    <ion-item>
+                        <ion-input type="text" placeholder="MAC" name="nome" [(ngModel)]="hidrometro.mac" required></ion-input>
+                    </ion-item>
+    
+                    <ion-item>
+                        <ion-input type="text" placeholder="Nome do Hidrometro" name="nome" [(ngModel)]="hidrometro.nome" required></ion-input>
+                    </ion-item>
+
+                    <ion-item-divider>
+                        Localidade
+                    </ion-item-divider>
+
+                    <ion-item>
+                        <ion-input type="text" placeholder="Localidade" name="localidade" [(ngModel)]="hidrometro.localidade.nome" required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-input type="text" placeholder="Logradouro" name="localidade" [(ngModel)]="hidrometro.localidade.logradouro" required></ion-input>
+                    </ion-item>
+                </ion-list>
+                
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <button ion-button full type="submit" [disabled]="!meuForm.form.valid"> Enviar </button>
+        </ion-row>
+
+        <ion-row>
+            <div ion-button color="light" full (click)="fechar()" > Cancelar </div>
+        </ion-row>
+
+    </form>
+
+</ion-content>

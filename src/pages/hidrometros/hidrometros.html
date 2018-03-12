@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar color="primary">
     <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
     </button>
@@ -7,13 +7,33 @@
     </ion-navbar>
 </ion-header>
 
+
 <ion-content>
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content
+                pullingIcon="arrow-dropdown"
+                pullingText="Arraste para atualizar"
+                refreshingSpinner="circles"
+                refreshingText="Atualizando...">
+        </ion-refresher-content>
+    </ion-refresher>
+
     <ion-list>
-    <button ion-item *ngFor="let hidrometro of hidrometros" (click)="itemTapped($event, hidrometro)">
+        <ion-item *ngFor="let hidrometro of hidrometros" (click)="itemTapped($event, hidrometro)">
+            <h2>{{hidrometro.nome}}</h2>
+            <h3> {{hidrometro.localidade}} </h3>
+            <p>Ultima Medição • {{ hidrometro.ultimaMedicao }}</p>
+            <button ion-button clear item-end>Visualizar</button>
+        </ion-item>
+    <!-- <button ion-item *ngFor="let hidrometro of hidrometros" (click)="itemTapped($event, hidrometro)">
         {{hidrometro.nome}}
-    </button>
+    </button> -->
     </ion-list>
-    <!-- <div *ngIf="selectedItem" padding>
-     You navigated here from <b>{{selectedItem.title}}</b>
-    </div> -->
+
+    <ion-fab right bottom>
+        <button ion-fab color="primary" (click)="presentAddModal()">
+            <ion-icon name="add"></ion-icon>
+        </button>
+    </ion-fab>
 </ion-content>
