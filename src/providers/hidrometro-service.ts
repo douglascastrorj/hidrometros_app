@@ -62,7 +62,7 @@ export class HidrometroService {
             this.http.get(url, options)
             .subscribe(
                 (response: Response) => {
-                    console.log(response.json())
+                    // console.log(response.json())
                     observer.next(response.json());
                     observer.complete();
                 }

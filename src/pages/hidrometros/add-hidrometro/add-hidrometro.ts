@@ -15,11 +15,22 @@ export class AddHidrometroPage {
         id: -1,
         nome: '',
         mac:'',
-        localidade: { id: -1, nome:'' , logradouro: ''}
+        localidade: { 
+            id: -1, 
+            nome:'' , 
+            logradouro: ''
+        }
     };
 
 	constructor(params: NavParams,public navCtrl: NavController, private hidrometroService: HidrometroService) {
-        this.hidrometro.id = params.get('hidrometroId')
+        let hidrometro = params.get('hidrometro')
+
+        if( hidrometro != null ){
+            this.hidrometroService.getHidrometro(hidrometro.id).subscribe( hidrometro =>{
+                this.hidrometro = hidrometro;
+                console.log("hidrometro buscado", hidrometro)
+            })
+        }
 	}
 
    
@@ -27,13 +38,21 @@ export class AddHidrometroPage {
         //fecha modal
         console.log("fechar")
         this.navCtrl.pop();
-
     }
+
+    
     submit() {
 
-        this.hidrometroService.addHidrometro( this.hidrometro ).subscribe( data => console.log(data))
-        //fecha modal
-        // this.navCtrl.pop();
+        this.hidrometroService.addHidrometro( this.hidrometro ).subscribe( data => {
+            console.log(data)
+            //fecha modal
+            this.navCtrl.pop();
+        } , err =>{
+            //fecha modal
+            console.log(err)
+            this.navCtrl.pop();
+        })
+        
     }
 
 	ionViewDidLoad() {

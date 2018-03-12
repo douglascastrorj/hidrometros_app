@@ -13,13 +13,13 @@
     <form (ngSubmit)="submit()" #meuForm="ngForm">
         <ion-row>
             <ion-col>
-                <ion-list >
+                <ion-list inset>
                     <ion-item-divider>
                         Dados Hidrômetro
                     </ion-item-divider>
 
                     <ion-item>
-                        <ion-input type="text" placeholder="MAC" name="nome" [(ngModel)]="hidrometro.mac" required></ion-input>
+                        <ion-input type="text" placeholder="MAC" name="mac" [(ngModel)]="hidrometro.mac" required></ion-input>
                     </ion-item>
     
                     <ion-item>
@@ -31,11 +31,11 @@
                     </ion-item-divider>
 
                     <ion-item>
-                        <ion-input type="text" placeholder="Localidade" name="localidade" [(ngModel)]="hidrometro.localidade.nome" required></ion-input>
+                        <ion-input type="text" placeholder="Localidade" name="localidade.nome" [(ngModel)]="hidrometro.localidade.nome" required></ion-input>
                     </ion-item>
 
                     <ion-item>
-                        <ion-input type="text" placeholder="Logradouro" name="localidade" [(ngModel)]="hidrometro.localidade.logradouro" required></ion-input>
+                        <ion-input type="text" placeholder="Logradouro" name="localidade.logradouro" [(ngModel)]="hidrometro.localidade.logradouro" required></ion-input>
                     </ion-item>
                 </ion-list>
                 
@@ -51,5 +51,6 @@
         </ion-row>
 
     </form>
+
 
 </ion-content>

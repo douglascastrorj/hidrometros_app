@@ -20,11 +20,21 @@
     </ion-refresher>
 
     <ion-list>
-        <ion-item *ngFor="let hidrometro of hidrometros" (click)="itemTapped($event, hidrometro)">
-            <h2>{{hidrometro.nome}}</h2>
-            <h3> {{hidrometro.localidade}} </h3>
-            <p>Ultima Medição • {{ hidrometro.ultimaMedicao }}</p>
-            <button ion-button clear item-end>Visualizar</button>
+        <ion-item *ngFor="let hidrometro of hidrometros" >
+            
+            <ion-row>
+                <ion-col col-6 (click)="editar(hidrometro)">
+                    <h2>{{hidrometro.nome}}</h2>
+                    <h3> {{hidrometro.localidade}} </h3>
+                    <p>Ultima Medição • {{ hidrometro.ultimaMedicao }}</p>
+                </ion-col>
+
+                <ion-col col-4>
+                    <button ion-button clear item-start (click)="editar(hidrometro)"><ion-icon name="create"></ion-icon> Editar</button>
+                    <button ion-button clear item-start><ion-icon name="md-clock"></ion-icon> Medições</button> 
+                </ion-col>
+            </ion-row>
+            
         </ion-item>
     <!-- <button ion-item *ngFor="let hidrometro of hidrometros" (click)="itemTapped($event, hidrometro)">
         {{hidrometro.nome}}

@@ -28,20 +28,34 @@ export class HidrometrosPage {
                     localidade: hidrometro.localidade
                 }) 
             );
-            refresher.complete();
-            // arr.map(person => ({ value: person.id, text: person.name }));
-            // this.hidrometros.map( hidrometro.ultimaMediacao => moment(data).format('DD/MM/YYYY HH:mm'))
+
+            if(refresher != null){
+                refresher.complete();
+            }
         })
     }
 
     presentAddModal() {
-        let profileModal = this.modalCtrl.create(AddHidrometroPage, { hidrometroId: -1 });
+        let profileModal = this.modalCtrl.create(AddHidrometroPage, { hidrometro: null });
+        profileModal.present();
+    }
+
+    editar(hidrometro){
+        let profileModal = this.modalCtrl.create(AddHidrometroPage, { hidrometro: hidrometro });
         profileModal.present();
     }
 
 
-
 	ionViewDidLoad() {
-        this.doRefresh(null);
+        this.hidrometroService.getHidrometrosUsuario().subscribe( hidrometros => {
+            this.hidrometros = hidrometros.map( hidrometro => (
+                {
+                    nome:hidrometro.nome,
+                    id: hidrometro.id, 
+                    ultimaMedicao: moment(hidrometro.ultimaMedicao).format('DD/MM/YYYY HH:mm') !=  "Invalid date"? moment(hidrometro.ultimaMedicao).format('DD/MM/YYYY HH:mm'): "Não há medições" ,
+                    localidade: hidrometro.localidade
+                }) 
+            );
+        })
     }
 }
