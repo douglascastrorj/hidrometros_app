@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/timeout'
 
 import {Http, Response, Headers} from "@angular/http";
 
@@ -83,7 +84,7 @@ export class AuthService {
 			return Observable.create(observer => {
 				// At this point make a request to your backend to make a real check!
 				
-				this.http.post(this.serverApi, body.toString(), options)
+				this.http.post(this.serverApi, body.toString(), options).timeout(20000)
 				.subscribe(
 					(response: Response) => {
 						console.log("Response recebido:",response.json())

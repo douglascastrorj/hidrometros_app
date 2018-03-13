@@ -4,6 +4,7 @@ import { HidrometroService } from '../../providers/hidrometro-service';
 import 'rxjs/add/operator/map';
 import * as moment from 'moment';
 import { AddHidrometroPage } from './add-hidrometro/add-hidrometro'
+import { MedicoesPage } from '../medicoes/medicoes'
 
 @Component({
   selector: 'page-hidrometros',
@@ -33,6 +34,10 @@ export class HidrometrosPage {
                 refresher.complete();
             }
         })
+    }
+
+    showMedicoes( hidrometro ){
+        this.navCtrl.push(MedicoesPage, {idHidrometro: hidrometro.id});
     }
 
     presentAddModal() {

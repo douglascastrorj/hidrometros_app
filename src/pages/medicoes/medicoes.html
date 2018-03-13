@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title> Meus hidrômetros</ion-title>
+    <ion-title> Medições do Hidrometro</ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -20,25 +20,34 @@
     </ion-refresher>
 
     <ion-list>
-        <ion-item *ngFor="let hidrometro of hidrometros" >
-            
+
+        <ion-item>
             <ion-row>
-                <ion-col col-8 (click)="editar(hidrometro)">
-                    <h2 class="hidrometro_nome">{{hidrometro.nome}}</h2>
-                    <h3> {{hidrometro.localidade}} </h3>
-                    <p>Ultima Medição • {{ hidrometro.ultimaMedicao }}</p>
+                <ion-col>
+                    <strong>Valor</strong>
+                </ion-col>
+                <ion-col>
+                    <strong>Data </strong>
                 </ion-col>
 
-                <ion-col col-2>
-                    <!-- <button ion-button clear item-start (click)="editar(hidrometro)"><ion-icon name="create"></ion-icon> Editar</button> -->
-                    <button ion-button clear item-end (click)="showMedicoes(hidrometro)"> Medições <ion-icon name="md-clock"></ion-icon> </button> 
+                <ion-col>
+                    <strong> Hora </strong>
+                </ion-col>                
+            </ion-row>
+        </ion-item>
+        <ion-item *ngFor="let medicao of medicoes" >
+            
+            <ion-row>
+                <ion-col >
+                   <p>{{ medicao.valor}}</p>
                 </ion-col>
+
+                <ion-col> {{medicao.dataMedicao}} </ion-col>
+
+                <ion-col> {{medicao.horaMedicao}} </ion-col>
             </ion-row>
             
         </ion-item>
-    <!-- <button ion-item *ngFor="let hidrometro of hidrometros" (click)="itemTapped($event, hidrometro)">
-        {{hidrometro.nome}}
-    </button> -->
     </ion-list>
 
     <ion-fab right bottom>

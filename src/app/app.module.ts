@@ -9,10 +9,13 @@ import { LoginPage } from '../pages/login/login';
 import { HidrometrosPage } from '../pages/hidrometros/hidrometros';
 import { AddHidrometroPage } from '../pages/hidrometros/add-hidrometro/add-hidrometro';
 
+import { MedicoesPage } from '../pages/medicoes/medicoes';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../providers/auth-service';
 import { HidrometroService } from '../providers/hidrometro-service';
+import { MedicaoService } from '../providers/medicao-service';
 import  { Http } from '@angular/http';
 import {HttpModule} from "@angular/http";
 
@@ -23,7 +26,8 @@ import {HttpModule} from "@angular/http";
     ListPage,
     LoginPage,
     HidrometrosPage,
-    AddHidrometroPage
+    AddHidrometroPage,
+    MedicoesPage
   ],
   imports: [
     BrowserModule,
@@ -37,14 +41,16 @@ import {HttpModule} from "@angular/http";
     ListPage,
     LoginPage,
     HidrometrosPage,
-    AddHidrometroPage
+    AddHidrometroPage,
+    MedicoesPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
-    HidrometroService
+    HidrometroService,
+    MedicaoService
   ]
 })
 export class AppModule {}
