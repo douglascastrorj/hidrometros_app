@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="login"></ion-icon>
+        </button>
+        <ion-title>Adicionar Medição</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content  padding>
+
+    <form (ngSubmit)="submit()" #meuForm="ngForm">
+        
+
+        <h4> Hidrômetro: {{ hidrometro.nome }} </h4>
+        <ion-item>
+            <ion-label>Valor</ion-label>
+            <ion-input type="text" placeholder="" name="valor" [(ngModel)]="medicao.valor" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Data</ion-label>
+            <ion-input type="text" placeholder="" name="data" [(ngModel)]="medicao.data" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Hora</ion-label>
+            <ion-input type="text" placeholder="" name="hora" [(ngModel)]="medicao.hora" required></ion-input>
+        </ion-item>
+
+    
+        <div ion-button color="light"  (click)="showDatePicker()" > Datepicker </div>
+        <div ion-button color="light"  (click)="showHourPicker()" > Hourpicker </div>
+                
+        <button ion-button full type="submit" [disabled]="!meuForm.form.valid"> Enviar </button>
+        <br>
+        <div ion-button color="light" full (click)="fechar()" > Cancelar </div>
+        
+    </form>
+
+
+</ion-content>

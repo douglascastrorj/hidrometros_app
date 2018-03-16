@@ -37,7 +37,7 @@ export class HidrometrosPage {
     }
 
     showMedicoes( hidrometro ){
-        this.navCtrl.push(MedicoesPage, {idHidrometro: hidrometro.id});
+        this.navCtrl.push(MedicoesPage, {hidrometro: hidrometro});
     }
 
     presentAddModal() {

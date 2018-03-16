@@ -41,7 +41,7 @@ export class LoginPage {
 
 	showLoading() {
 		this.loading = this.loadingCtrl.create({
-			content: 'Esepere porfavor...',
+			content: 'Espere por favor...',
 			dismissOnPageChange: true
 		});
 		this.loading.present();

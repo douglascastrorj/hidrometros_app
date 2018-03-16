@@ -3,6 +3,7 @@ import { NavController, ModalController, NavParams } from 'ionic-angular';
 import { MedicaoService } from '../../providers/medicao-service';
 import 'rxjs/add/operator/map';
 import * as moment from 'moment';
+import {AddMedicaoPage} from './add-medicao/add-medicao'
 
 @Component({
   selector: 'page-medicoes',
@@ -11,6 +12,7 @@ import * as moment from 'moment';
 export class MedicoesPage {
 
     public medicoes:any = [];
+    public hidrometro:any = {};
 
 	constructor(public navCtrl: NavController, private params: NavParams, private medicaoService: MedicaoService, public modalCtrl: ModalController) {
 
@@ -20,20 +22,15 @@ export class MedicoesPage {
 
     }
 
-    presentAddModal() {
-        // let profileModal = this.modalCtrl.create(AddHidrometroPage, { hidrometro: null });
-        // profileModal.present();
-    }
-
-    editar(medicao){
-        // let profileModal = this.modalCtrl.create(AddHidrometroPage, { hidrometro: hidrometro });
-        // profileModal.present();
+    presentAddModal(  ) {
+        let profileModal = this.modalCtrl.create(AddMedicaoPage, { hidrometro: this.hidrometro });
+        profileModal.present();
     }
 
 
 	ionViewDidLoad() {
-        let idHidrometro = this.params.get('idHidrometro')
-        this.medicaoService.getMedicaoDoHidrometro(idHidrometro).subscribe( medicoesHidrometro => {
+        this.hidrometro = this.params.get('hidrometro')
+        this.medicaoService.getMedicaoDoHidrometro(this.hidrometro.id).subscribe( medicoesHidrometro => {
             this.medicoes = medicoesHidrometro.map( med => (
                 {
                     valor:med.valor,

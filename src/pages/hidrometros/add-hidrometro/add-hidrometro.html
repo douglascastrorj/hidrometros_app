@@ -11,45 +11,38 @@
 <ion-content  padding>
 
     <form (ngSubmit)="submit()" #meuForm="ngForm">
-        <ion-row>
-            <ion-col>
-                <ion-list inset>
-                    <ion-item-divider>
-                        Dados Hidrômetro
-                    </ion-item-divider>
+       
 
-                    <ion-item>
-                        <ion-input type="text" placeholder="MAC" name="mac" [(ngModel)]="hidrometro.mac" required></ion-input>
-                    </ion-item>
-    
-                    <ion-item>
-                        <ion-input type="text" placeholder="Nome do Hidrometro" name="nome" [(ngModel)]="hidrometro.nome" required></ion-input>
-                    </ion-item>
+        <h4> Dados do hidrometro </h4>
+        <ion-item>
+            <ion-label>MAC</ion-label>
+            <ion-input type="text" placeholder="" name="mac" [(ngModel)]="hidrometro.mac" required></ion-input>
+        </ion-item>
 
-                    <ion-item-divider>
-                        Localidade
-                    </ion-item-divider>
+        <ion-item>
+                <ion-label>Nome</ion-label>
+            <ion-input type="text" placeholder="" name="nome" [(ngModel)]="hidrometro.nome" required></ion-input>
+        </ion-item>
 
-                    <ion-item>
-                        <ion-input type="text" placeholder="Localidade" name="localidade.nome" [(ngModel)]="hidrometro.localidade.nome" required></ion-input>
-                    </ion-item>
+        <hr>
+        <h4> Localidade do Hidrometro </h4>
 
-                    <ion-item>
-                        <ion-input type="text" placeholder="Logradouro" name="localidade.logradouro" [(ngModel)]="hidrometro.localidade.logradouro" required></ion-input>
-                    </ion-item>
-                </ion-list>
+        <ion-item>
+            <ion-label>Localidade</ion-label>
+            <ion-input type="text" placeholder="" name="localidade.nome" [(ngModel)]="hidrometro.localidade.nome" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Logradouro</ion-label>
+            <ion-input type="text" placeholder="" name="localidade.logradouro" [(ngModel)]="hidrometro.localidade.logradouro" required></ion-input>
+        </ion-item>
+
+        <br><br>
                 
-            </ion-col>
-        </ion-row>
-
-        <ion-row>
-            <button ion-button full type="submit" [disabled]="!meuForm.form.valid"> Enviar </button>
-        </ion-row>
-
-        <ion-row>
-            <div ion-button color="light" full (click)="fechar()" > Cancelar </div>
-        </ion-row>
-
+        <button ion-button full type="submit" [disabled]="!meuForm.form.valid"> Enviar </button>
+        <br>
+        <div ion-button color="light" full (click)="fechar()" > Cancelar </div>
+      
     </form>
 
 

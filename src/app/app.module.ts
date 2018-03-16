@@ -6,10 +6,12 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
+
 import { HidrometrosPage } from '../pages/hidrometros/hidrometros';
 import { AddHidrometroPage } from '../pages/hidrometros/add-hidrometro/add-hidrometro';
 
 import { MedicoesPage } from '../pages/medicoes/medicoes';
+import { AddMedicaoPage } from '../pages/medicoes/add-medicao/add-medicao'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,6 +20,7 @@ import { HidrometroService } from '../providers/hidrometro-service';
 import { MedicaoService } from '../providers/medicao-service';
 import  { Http } from '@angular/http';
 import {HttpModule} from "@angular/http";
+import { DatePicker } from '@ionic-native/date-picker';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import {HttpModule} from "@angular/http";
     LoginPage,
     HidrometrosPage,
     AddHidrometroPage,
-    MedicoesPage
+    MedicoesPage,
+    AddMedicaoPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,8 @@ import {HttpModule} from "@angular/http";
     LoginPage,
     HidrometrosPage,
     AddHidrometroPage,
-    MedicoesPage
+    MedicoesPage,
+    AddMedicaoPage
   ],
   providers: [
     StatusBar,
@@ -50,7 +55,8 @@ import {HttpModule} from "@angular/http";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     HidrometroService,
-    MedicaoService
+    MedicaoService,
+    DatePicker
   ]
 })
 export class AppModule {}
