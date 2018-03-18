@@ -1,0 +1,40 @@
+ESTE PROJETO UTILIZA VERSAO IONIC 3.19.1
+
+antes de rodar o projeto instale o plugin date picker
+
+https://ionicframework.com/docs/native/date-picker/
+
+$ ionic cordova plugin add cordova-plugin-datepicker
+$ npm install --save @ionic-native/date-picker
+
+no projeto do backend vc deve habilitar acesso externo no jboss
+
+https://stackoverflow.com/questions/10132657/jboss-as-7-not-accepting-remote-connections
+
+basta mudar os ips da tag interfaces para 0.0.0.0
+
+<interfaces>
+    <interface name="management">
+        <inet-address value="${jboss.bind.address.management:0.0.0.0}"/>
+    </interface>
+    <interface name="public">
+        <inet-address value="${jboss.bind.address:0.0.0.0}"/>
+    </interface>
+    <!-- TODO - only show this if the jacorb subsystem is added  -->
+    <interface name="unsecure">
+        <!--
+          ~  Used for IIOP sockets in the standard configuration.
+          ~                  To secure JacORB you need to setup SSL 
+          -->
+        <inet-address value="${jboss.bind.address.unsecure:0.0.0.0}"/>
+    </interface>
+</interfaces>
+
+    
+
+A fazer (mais importantes)
+
+    utilizar o localStorage para armazenar o token e o usuario logado (estou utilizando)
+    consumir os servicos do backend para preencher os graficos
+    tela de registrar / alterar usuario
+
