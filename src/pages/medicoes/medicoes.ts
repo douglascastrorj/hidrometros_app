@@ -19,7 +19,7 @@ export class MedicoesPage {
     }
     
     doRefresh( refresher ){
-
+        this.chamarServico(refresher);
     }
 
     presentAddModal(  ) {
@@ -27,9 +27,7 @@ export class MedicoesPage {
         profileModal.present();
     }
 
-
-	ionViewDidLoad() {
-        this.hidrometro = this.params.get('hidrometro')
+    chamarServico(refresher) {
         this.medicaoService.getMedicaoDoHidrometro(this.hidrometro.id).subscribe( medicoesHidrometro => {
             this.medicoes = medicoesHidrometro.map( med => (
                 {
@@ -39,6 +37,16 @@ export class MedicoesPage {
                     horaMedicao: moment(med.medicao).format('HH:mm'),
                 }) 
             );
+
+            if(refresher != null){
+                refresher.complete();
+            }
         })
+    }
+
+
+	ionViewDidLoad() {
+        this.hidrometro = this.params.get('hidrometro')
+        this.chamarServico(null);
     }
 }
