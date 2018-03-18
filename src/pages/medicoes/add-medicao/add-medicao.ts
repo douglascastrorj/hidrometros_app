@@ -14,7 +14,7 @@ import { DatePicker } from '@ionic-native/date-picker';
 export class AddMedicaoPage {
 
     hidrometro: any = {
-        id: -1,
+        id: null,
         nome: '',
         mac:'',
         localidade: { 
@@ -44,7 +44,10 @@ export class AddMedicaoPage {
             mode: 'date',
             androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
         }).then(
-            date => console.log('Got date: ', date),
+            date => {
+                //console.log('Got date: ', date)
+                this.medicao.data = moment(date).format('DD/MM/YYYY');
+            },
             err => console.log('Error occurred while getting date: ', err)
         );
     }
@@ -56,15 +59,36 @@ export class AddMedicaoPage {
             mode: 'time',
             androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
         }).then(
-            date => console.log('Got date: ', date),
+            date => {
+                //console.log('Got date: ', date)
+                this.medicao.hora = moment(date).format('HH:mm')
+            },
             err => console.log('Error occurred while getting date: ', err)
         );
     }
     
     submit() {
         
+        let data = moment(this.medicao.data + this.medicao.hora, "DD/MM/YYYYHH:mm").valueOf()
+        let med = new Medicao(this.medicao.valor, data, this.hidrometro.id);
+
+        this.medicaoService.addMedicao(med).subscribe( 
+        data=>{
+            console.log("foi");
+        },
+        err => {
+            console.log(err);
+        });
     }
 
+    /*return {
+					valor: this.valor,
+					medicao: moment(this.dataMedicao + this.horaMedicao, "DD/MM/YYYYHH:mm").valueOf(),
+					insercao: moment().valueOf(),
+					hidrometro: {
+						id: this.hidrometroId
+					}
+				};*/
 	ionViewDidLoad() {
     }
 }

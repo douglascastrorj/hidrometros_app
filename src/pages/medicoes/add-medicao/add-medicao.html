@@ -19,19 +19,21 @@
             <ion-input type="text" placeholder="" name="valor" [(ngModel)]="medicao.valor" required></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item (click)="showDatePicker()" >
             <ion-label>Data</ion-label>
-            <ion-input type="text" placeholder="" name="data" [(ngModel)]="medicao.data" required></ion-input>
+            <ion-input type="text" placeholder="" name="data" [(ngModel)]="medicao.data" [disabled]="true"  required></ion-input>
+            <!-- <div ion-button color="light"  (click)="showDatePicker()" > Preencher </div> -->
         </ion-item>
 
-        <ion-item>
+        <ion-item (click)="showHourPicker()" >
             <ion-label>Hora</ion-label>
-            <ion-input type="text" placeholder="" name="hora" [(ngModel)]="medicao.hora" required></ion-input>
+            <ion-input type="text" placeholder="" name="hora" [(ngModel)]="medicao.hora" [disabled]="true"  required></ion-input>
+            <!-- <div ion-button color="light"  (click)="showHourPicker()" > Preencher </div> -->
         </ion-item>
 
     
-        <div ion-button color="light"  (click)="showDatePicker()" > Datepicker </div>
-        <div ion-button color="light"  (click)="showHourPicker()" > Hourpicker </div>
+        
+        
                 
         <button ion-button full type="submit" [disabled]="!meuForm.form.valid"> Enviar </button>
         <br>

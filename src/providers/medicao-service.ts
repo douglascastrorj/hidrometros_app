@@ -6,6 +6,7 @@ import moment from 'moment';
 
 import {Http, Response, Headers, RequestOptions} from "@angular/http";
 import { AuthService } from './auth-service';
+import { Medicao } from '../models/medicao';
 
 
 @Injectable()
@@ -33,6 +34,25 @@ export class MedicaoService {
         return Observable.create(observer => {
             // At this point make a request to your backend to make a real check!
             this.http.get(url, options)
+            .subscribe(
+                (response: Response) => {
+                    // console.log(response.json())
+                    observer.next(response.json());
+                    observer.complete();
+                }
+            , (err:any) => {
+                observer.next(false);
+                observer.complete();
+            })	
+        })
+    }
+
+    public addMedicao( medicao: Medicao){
+        let url = this.api_url;
+        let options = this.createOptions();
+        return Observable.create(observer => {
+            // At this point make a request to your backend to make a real check!
+            this.http.post(url, medicao, options)
             .subscribe(
                 (response: Response) => {
                     // console.log(response.json())
