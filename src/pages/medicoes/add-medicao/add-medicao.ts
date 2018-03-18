@@ -71,7 +71,7 @@ export class AddMedicaoPage {
 	presentAlert() {
 		let alert = this.alertCtrl.create({
 			title: 'Falha ao inserir medição',
-			subTitle: 'Servidor indisponível no momento.',
+			subTitle: 'Servidor indisponível no momento, tente novamente mais tarde.',
 			buttons: [{
 				text: 'Ok',
 				handler: () => {
